@@ -1,26 +1,27 @@
 USE employee_management_db;
 
-INSERT INTO employee (first_name, last_name)
-VALUES ("Melany", "DeJona"),
-	   ("Johnny", "Smith"),
-       ("Jimmy", "Smith"),
-       ("Jackson", "Jones"),
-       ("Aretha", "Mulburry"),
-       ("Elizabeth", "Tracey"),
-       ("Wes", "Evans");
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
+VALUES ("Melany", "DeJona", 1, NULL),
+	   ("Johnny", "Smith", 2, 1),
+       ("Jimmy", "Smith", 4, 1),
+       ("Jackson", "Jones", 12, NULL),
+       ("Aretha", "Mulburry", 5, 6),
+       ("Elizabeth", "Tracey", 3, 1),
+       ("Wes", "Evans", 7, 6);
        
-INSERT INTO role (title, salary)
-	 VALUES ("Engineering Manager", "150000"),
-            ("Software Engineer I", "80000"),
-            ("Software Engineer II", "120000"),
-            ("Project Manager", "150000"),
-            ("Scrum Master", "80000"),
-            ("QA Engineer", "100000"),
-            ("Sales Manager", "150000"),
-            ("Sales Engineer I", "80000"),
-            ("Sales Engineer II", "120000"),
-            ("Accountant I", "100000"),
-            ("Account Manager", "150000");
+INSERT INTO role (title, salary, department_id)
+	 VALUES ("Engineering Manager", "150000", 1),
+            ("Software Engineer I", "80000", 1),
+            ("Software Engineer II", "120000", 1),
+            ("Project Manager", "150000", 1),
+            ("Scrum Master", "80000", 1),
+            ("QA Engineer", "100000", 1),
+            ("Sales Manager", "150000", 2),
+            ("Sales Engineer I", "80000", 2),
+            ("Sales Engineer II", "120000", 2),
+            ("Accountant I", "100000", 4),
+            ("Account Manager", "150000", 4),
+            ("CEO", "1", 2);
 
 INSERT INTO department (name)
 	 VALUES ("Engineering"), ("Sales"), ("Marketing"), ("Accounting");
