@@ -9,7 +9,7 @@ VALUES ("Melany", "DeJona", 1, NULL),
        ("Elizabeth", "Tracey", 3, 1),
        ("Wes", "Evans", 7, 6);
        
-INSERT INTO role (title, salary, department_id)
+INSERT INTO role_table (title, salary, department_id)
 	 VALUES ("Engineering Manager", "150000", 1),
             ("Software Engineer I", "80000", 1),
             ("Software Engineer II", "120000", 1),
@@ -23,5 +23,5 @@ INSERT INTO role (title, salary, department_id)
             ("Account Manager", "150000", 4),
             ("CEO", "1", 2);
 
-INSERT INTO department (name)
+INSERT INTO department (department_name)
 	 VALUES ("Engineering"), ("Sales"), ("Marketing"), ("Accounting");

@@ -12,7 +12,7 @@ CREATE TABLE employee (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE role (
+CREATE TABLE role_table (
 	id INT AUTO_INCREMENT,
 	title VARCHAR(30),
     salary VARCHAR(30),
@@ -22,6 +22,12 @@ CREATE TABLE role (
 
 CREATE TABLE department (
 	id INT AUTO_INCREMENT,
-	name VARCHAR(30),
+	department_name VARCHAR(30),
 	PRIMARY KEY (id)
 );
+
+-- Basic join query
+SELECT employee.id, employee.first_name, employee.last_name, role_table.title, role_table.salary, department.department_name
+  FROM employee
+ INNER JOIN role_table ON role_table.id=employee.role_id
+ INNER JOIN department ON role_table.department_id=department.id;
