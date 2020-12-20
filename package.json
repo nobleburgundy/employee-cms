@@ -1,0 +1,27 @@
+{
+  "name": "employee-cms",
+  "version": "1.0.0",
+  "description": "A CLI based employee management system.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nobleburgundy/employee-cms.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nobleburgundy/employee-cms/issues"
+  },
+  "homepage": "https://github.com/nobleburgundy/employee-cms#readme",
+  "dependencies": {
+    "inquirer": "^7.3.3",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
