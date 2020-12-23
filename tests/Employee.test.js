@@ -6,6 +6,7 @@ describe("Employee class", () => {
       const employee = new Employee("First", "Last", "QA", null);
 
       expect(typeof employee).toBe("object");
+      expect(employee instanceof Employee).toBe(true);
     });
   });
 });

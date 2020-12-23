@@ -6,6 +6,7 @@ describe("Department class tests", () => {
       const department = new Department("Test");
 
       expect(typeof department).toBe("object");
+      expect(department instanceof Department).toBe(true);
     });
   });
 });

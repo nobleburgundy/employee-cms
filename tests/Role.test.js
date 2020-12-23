@@ -6,6 +6,7 @@ describe("Role class", () => {
       const role = new Role("Test", 100000);
 
       expect(typeof role).toBe("object");
+      expect(role instanceof Role).toBe(true);
     });
   });
 });
