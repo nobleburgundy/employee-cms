@@ -27,5 +27,4 @@ VALUES ("Melany", "DeJona", 1, NULL),
        ("Wes", "Evans", 7, 5),
        ("Jerry", "Jerry", 9, NULL);
 
-
      
