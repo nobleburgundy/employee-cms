@@ -15,4 +15,36 @@ describe("DB Class Tests", () => {
       expect(db.connection.config.database).toBe("employee_management_db");
     });
   });
+
+  describe("DB add functions", () => {
+    it("addRole", () => {
+      const db = new DB();
+      const mock = jest.spyOn(db, "addDepartment");
+      mock.mockImplementation(() => {});
+      db.addDepartment("Test2");
+
+      expect(mock).toBeCalledTimes(1);
+      mock.mockRestore();
+    });
+
+    it("addDepartment", () => {
+      const db = new DB();
+      const mock = jest.spyOn(db, "addDepartment");
+      mock.mockImplementation(() => {});
+      db.addDepartment("Test2");
+
+      expect(mock).toBeCalledTimes(1);
+      mock.mockRestore();
+    });
+
+    it("addEmployee", () => {
+      const db = new DB();
+      const mock = jest.spyOn(db, "addEmployee");
+      mock.mockImplementation(() => {});
+      db.addEmployee("FirstN", "LastN", 1, 1);
+
+      expect(mock).toBeCalledTimes(1);
+      mock.mockRestore();
+    });
+  });
 });
