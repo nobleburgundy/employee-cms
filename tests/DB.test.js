@@ -19,31 +19,43 @@ describe("DB Class Tests", () => {
   describe("DB add functions", () => {
     it("addRole", () => {
       const db = new DB();
-      const mock = jest.spyOn(db, "addDepartment");
+      const testRole = "test" + Math.random();
+      const mock = jest.spyOn(db, "addRole");
       mock.mockImplementation(() => {});
-      db.addDepartment("Test2");
+      db.addRole(testRole);
 
       expect(mock).toBeCalledTimes(1);
+      expect(mock).toBeCalledWith(testRole);
       mock.mockRestore();
     });
 
     it("addDepartment", () => {
       const db = new DB();
+      const testDepartment = "test" + Math.random();
       const mock = jest.spyOn(db, "addDepartment");
       mock.mockImplementation(() => {});
-      db.addDepartment("Test2");
+      db.addDepartment(testDepartment);
 
       expect(mock).toBeCalledTimes(1);
+      expect(mock).toBeCalledWith(testDepartment);
       mock.mockRestore();
     });
 
     it("addEmployee", () => {
       const db = new DB();
+      const testInput = {
+        firstName: "test" + Math.random(),
+        lastName: "test" + Math.random(),
+        roleId: 1,
+        managerId: null,
+      };
       const mock = jest.spyOn(db, "addEmployee");
       mock.mockImplementation(() => {});
-      db.addEmployee("FirstN", "LastN", 1, 1);
+      db.addEmployee(testInput.firstName, testInput.lastName, testInput.roleId, testInput.managerId);
 
       expect(mock).toBeCalledTimes(1);
+      // Object.values produces an array of values, use spread operator to check each one
+      expect(mock).toBeCalledWith(...Object.values(testInput));
       mock.mockRestore();
     });
   });
