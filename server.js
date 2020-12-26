@@ -30,7 +30,6 @@ function start() {
             db.endConnecton();
             start();
           });
-
           break;
         case "View Employees By Department":
           viewByDepartment();
@@ -41,11 +40,13 @@ function start() {
         case "View Roles":
           db.getAllRoles((res) => {
             console.table(res);
+            start();
           });
           break;
         case "View Departments":
           db.getAllDepartments((res) => {
             console.table(res);
+            start();
           });
           break;
         case "Add Employee":
@@ -60,6 +61,7 @@ function start() {
             })
             .then((answer) => {
               db.addDepartment(answer.department);
+              start();
             });
           break;
         case "Add Role":
@@ -85,9 +87,6 @@ viewByDepartment = () => {
         console.table(res);
         start();
       });
-    })
-    .finally(() => {
-      db.endConnecton();
     });
 };
 
@@ -103,9 +102,6 @@ viewByRole = () => {
         console.table(res);
         start();
       });
-    })
-    .finally(() => {
-      db.endConnecton();
     });
 };
 
@@ -136,9 +132,6 @@ addEmployee = () => {
     .then((answer) => {
       db.addEmployee(answer.firstName, answer.lastName, answer.roleId, answer.managerId);
       start();
-    })
-    .finally(() => {
-      db.endConnecton();
     });
 };
 
@@ -164,8 +157,5 @@ addRole = () => {
     .then((answer) => {
       db.addRole(answer.title, answer.salary, answer.departmentId);
       start();
-    })
-    .finally(() => {
-      db.endConnecton();
     });
 };
