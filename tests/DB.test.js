@@ -16,7 +16,7 @@ describe("DB Class Tests", () => {
     });
   });
 
-  describe("DB add functions", () => {
+  describe("DB INSERT functions", () => {
     it("addRole", () => {
       const db = new DB();
       const testRole = "test" + Math.random();
@@ -52,6 +52,23 @@ describe("DB Class Tests", () => {
       const mock = jest.spyOn(db, "addEmployee");
       mock.mockImplementation(() => {});
       db.addEmployee(testInput.firstName, testInput.lastName, testInput.roleId, testInput.managerId);
+
+      expect(mock).toBeCalledTimes(1);
+      // Object.values produces an array of values, use spread operator to check each one
+      expect(mock).toBeCalledWith(...Object.values(testInput));
+      mock.mockRestore();
+    });
+  });
+  describe("DB DELETE Tests", () => {
+    it("removeEmployee", () => {
+      const db = new DB();
+      const testInput = {
+        firstName: "test" + Math.random(),
+        lastName: "test" + Math.random(),
+      };
+      const mock = jest.spyOn(db, "removeEmployee");
+      mock.mockImplementation(() => {});
+      db.removeEmployee(testInput.firstName, testInput.lastName);
 
       expect(mock).toBeCalledTimes(1);
       // Object.values produces an array of values, use spread operator to check each one
