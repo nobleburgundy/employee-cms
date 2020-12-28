@@ -17,6 +17,7 @@ function start() {
         "View Departments",
         "View Roles",
         "Add Employee",
+        "Remove Employee",
         "Add Role",
         "Add Department",
         "Exit",
@@ -27,7 +28,6 @@ function start() {
         case "View All Employees":
           db.getAllEmployees((results) => {
             console.table(results);
-            db.endConnecton();
             start();
           });
           break;
@@ -53,19 +53,13 @@ function start() {
           addEmployee();
           break;
         case "Add Department":
-          inquirer
-            .prompt({
-              name: "department",
-              message: "Department name:",
-              type: "Input",
-            })
-            .then((answer) => {
-              db.addDepartment(answer.department);
-              start();
-            });
+          addDepartment();
           break;
         case "Add Role":
           addRole();
+          break;
+        case "Remove Employee":
+          removeEmployee();
           break;
         default:
           // Exit was choosen
@@ -130,8 +124,9 @@ addEmployee = () => {
       },
     ])
     .then((answer) => {
-      db.addEmployee(answer.firstName, answer.lastName, answer.roleId, answer.managerId);
-      start();
+      db.addEmployee(answer.firstName, answer.lastName, answer.roleId, answer.managerId, () => {
+        start();
+      });
     });
 };
 
@@ -155,7 +150,43 @@ addRole = () => {
       },
     ])
     .then((answer) => {
-      db.addRole(answer.title, answer.salary, answer.departmentId);
-      start();
+      db.addRole(answer.title, answer.salary, answer.departmentId, () => {
+        start();
+      });
+    });
+};
+
+addDepartment = () => {
+  inquirer
+    .prompt({
+      name: "department",
+      message: "Department name:",
+      type: "Input",
+    })
+    .then((answer) => {
+      db.addDepartment(answer.department, () => {
+        start();
+      });
+    });
+};
+
+removeEmployee = () => {
+  inquirer
+    .prompt([
+      {
+        name: "firstName",
+        message: "First Name:",
+        type: "input",
+      },
+      {
+        name: "lastName",
+        message: "Last Name:",
+        type: "input",
+      },
+    ])
+    .then((answer) => {
+      db.removeEmployee(answer.firstName, answer.lastName, () => {
+        start();
+      });
     });
 };
