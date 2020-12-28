@@ -59,7 +59,9 @@ function start() {
           addRole();
           break;
         case "Remove Employee":
-          removeEmployee();
+          db.removeEmp2(() => {
+            start();
+          });
           break;
         default:
           // Exit was choosen
@@ -165,27 +167,6 @@ addDepartment = () => {
     })
     .then((answer) => {
       db.addDepartment(answer.department, () => {
-        start();
-      });
-    });
-};
-
-removeEmployee = () => {
-  inquirer
-    .prompt([
-      {
-        name: "firstName",
-        message: "First Name:",
-        type: "input",
-      },
-      {
-        name: "lastName",
-        message: "Last Name:",
-        type: "input",
-      },
-    ])
-    .then((answer) => {
-      db.removeEmployee(answer.firstName, answer.lastName, () => {
         start();
       });
     });
