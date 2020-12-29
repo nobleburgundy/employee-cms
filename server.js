@@ -18,6 +18,7 @@ function start() {
         "View Roles",
         "Add Employee",
         "Remove Employee",
+        "Update Employee Role",
         "Add Role",
         "Add Department",
         "Exit",
@@ -63,9 +64,12 @@ function start() {
             start();
           });
           break;
+        case "Update Employee Role":
+          db.updateEmployeeRole(() => {
+            start();
+          });
         default:
           // Exit was choosen
-          db.endConnecton();
           break;
       }
     });
