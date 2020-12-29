@@ -59,7 +59,7 @@ function start() {
           addRole();
           break;
         case "Remove Employee":
-          db.removeEmp2(() => {
+          db.removeEmployee(() => {
             start();
           });
           break;
