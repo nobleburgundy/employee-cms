@@ -22,6 +22,7 @@ function start() {
         "Add Role",
         "Add Department",
         "View Total Budget",
+        "View Budget By Department",
         "Exit",
       ],
     })
@@ -73,6 +74,12 @@ function start() {
         case "View Total Budget":
           db.getTotalBudget((res) => {
             console.log("\nTotal Budget: " + res[0]["SUM(role_table.salary)"] + "\n");
+            start();
+          });
+          break;
+        case "View Budget By Department":
+          db.getBudgetByDepartment((res) => {
+            console.log("\nDepartment Budget: " + res[0]["SUM(role_table.salary)"] + "\n");
             start();
           });
           break;
