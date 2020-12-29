@@ -21,6 +21,7 @@ function start() {
         "Update Employee Role",
         "Add Role",
         "Add Department",
+        "View Total Budget",
         "Exit",
       ],
     })
@@ -68,6 +69,13 @@ function start() {
           db.updateEmployeeRole(() => {
             start();
           });
+          break;
+        case "View Total Budget":
+          db.getTotalBudget((res) => {
+            console.log("\nTotal Budget: " + res[0]["SUM(role_table.salary)"] + "\n");
+            start();
+          });
+          break;
         default:
           // Exit was choosen
           break;
