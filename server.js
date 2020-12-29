@@ -1,6 +1,9 @@
 const DB = require("./lib/DB");
 const inquirer = require("inquirer");
 const db = new DB();
+let currencyFormat = (number) => {
+  return new Intl.NumberFormat("us-US", { style: "currency", currency: "USD" }).format(number);
+};
 
 start();
 
@@ -73,13 +76,15 @@ function start() {
           break;
         case "View Total Budget":
           db.getTotalBudget((res) => {
-            console.log("\nTotal Budget: " + res[0]["SUM(role_table.salary)"] + "\n");
+            const budget = currencyFormat(res[0]["SUM(role_table.salary)"]);
+            console.log(`\nTotal Budget: ${budget}\n`);
             start();
           });
           break;
         case "View Budget By Department":
           db.getBudgetByDepartment((res) => {
-            console.log("\nDepartment Budget: " + res[0]["SUM(role_table.salary)"] + "\n");
+            const budget = currencyFormat(res[0]["SUM(role_table.salary)"]);
+            console.log(`\nDepartment Budget: ${budget}\n`);
             start();
           });
           break;
