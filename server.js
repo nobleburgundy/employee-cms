@@ -1,9 +1,27 @@
 const DB = require("./lib/DB");
 const inquirer = require("inquirer");
+const logo = require("asciiart-logo");
+const config = require("./package.json");
 const db = new DB();
 let currencyFormat = (number) => {
   return new Intl.NumberFormat("us-US", { style: "currency", currency: "USD" }).format(number);
 };
+
+console.log(
+  logo({
+    name: "Employee CMS",
+    font: "Speed",
+    lineChars: 10,
+    padding: 1,
+    margin: 3,
+    borderColor: "white",
+    logoColor: "cyan",
+  })
+    .emptyLine()
+    .right(`Version: ${config.version}`)
+    .right(config.description)
+    .render()
+);
 
 start();
 
