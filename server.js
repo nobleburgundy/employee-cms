@@ -38,10 +38,16 @@ function start() {
           });
           break;
         case "View Employees By Department":
-          viewByDepartment();
+          db.viewEmployeesByDepartment((res) => {
+            console.table(res);
+            start();
+          });
           break;
         case "View Employees By Role":
-          viewByRole();
+          db.viewEmployeesByRole((res) => {
+            console.table(res);
+            start();
+          });
           break;
         case "View Roles":
           db.getAllRoles((res) => {
@@ -90,40 +96,11 @@ function start() {
           break;
         default:
           // Exit was choosen
+          db.endConnection();
           break;
       }
     });
 }
-
-viewByDepartment = () => {
-  inquirer
-    .prompt({
-      name: "department",
-      message: "Which department?",
-      type: "input",
-    })
-    .then((answer) => {
-      db.getEmployeeByDepartment(answer.department, (res) => {
-        console.table(res);
-        start();
-      });
-    });
-};
-
-viewByRole = () => {
-  inquirer
-    .prompt({
-      name: "role",
-      message: "Which role?",
-      type: "input",
-    })
-    .then((answer) => {
-      db.getEmployeesByRole(answer.role, (res) => {
-        console.table(res);
-        start();
-      });
-    });
-};
 
 addEmployee = () => {
   inquirer
