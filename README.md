@@ -34,7 +34,13 @@ Once installed, run `node server.js` to run the program.
 
 ## Credits
 
-The Node [mysql](https://www.npmjs.com/package/mysql), [console-table](https://www.npmjs.com/package/console.table), [inquirer](https://www.npmjs.com/package/inquirer), and [Jest](https://jestjs.io/) packages and their accompanying documentation is used extensively for this project.
+The following packages and their accompanying documentation is used extensively for this project:
+
+- [mysql](https://www.npmjs.com/package/mysql)
+- [console-table](https://www.npmjs.com/package/console.table)
+- [Inquirer](https://www.npmjs.com/package/inquirer)
+- [Jest](https://jestjs.io/)
+- [ASCII-art Logo](https://www.npmjs.com/package/asciiart-logo)
 
 ## License
 
