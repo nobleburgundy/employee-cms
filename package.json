@@ -1,7 +1,7 @@
 {
   "name": "employee-cms",
   "version": "1.0.0",
-  "description": "Employee Managment CLI",
+  "description": "Employee Management CLI",
   "main": "index.js",
   "scripts": {
     "test": "jest --verbose test/*"
