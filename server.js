@@ -96,8 +96,9 @@ function start() {
           break;
         default:
           // Exit was choosen
-          db.endConnection();
-          break;
+          db.endConnection(() => {
+            console.log("\nThank you for using Employee CMS CLI!\n");
+          });
       }
     });
 }
