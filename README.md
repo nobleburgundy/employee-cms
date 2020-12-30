@@ -1,10 +1,12 @@
 # Employee Management CMS CLI
+
 ![Top Language](https://img.shields.io/github/languages/top/nobleburgundy/employee-cms?color=blue)
 ![Code Size](https://img.shields.io/github/languages/code-size/nobleburgundy/employee-cms?color=blue)
 ![Repo Size](https://img.shields.io/github/repo-size/nobleburgundy/employee-cms?color=blue)
 ![Lines of Code](https://img.shields.io/tokei/lines/github/nobleburgundy/employee-cms?color=blue)
- [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?color=red)](https://github.com/nobleburgundy/employee-cms/blob/master/LICENSE)
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?color=red)](https://github.com/nobleburgundy/employee-cms/blob/master/LICENSE)
 
+![logo](logo.png)
 
 ## Table of Contents
 
@@ -15,7 +17,7 @@
 - [Contributing](#contributing)
 - [Tests](#tests)
 
-## Description 
+## Description
 
 A simple CLI employee management system.
 
@@ -26,12 +28,9 @@ A simple CLI employee management system.
 3. Run `npm install`.
 4. Run `node server.js` to run the program.
 
-
-## Usage 
+## Usage
 
 Once installed, run `node server.js` to run the program.
-
-
 
 ## Credits
 
@@ -51,7 +50,6 @@ Contributions are welcome. If you are interested in contributing to this project
 
 Run `npm run test` to run tests located in the 'tests' directory.
 
-
-## Questions? 
+## Questions?
 
 Please contact me via email at goul0076@gmail.com with any questions.
