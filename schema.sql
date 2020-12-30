@@ -33,9 +33,3 @@ CREATE TABLE employee (
     FOREIGN KEY (role_id) REFERENCES role_table (id),
     PRIMARY KEY (id)
 );
-
--- Basic join query
-SELECT employee.id, employee.first_name, employee.last_name, role_table.title, role_table.salary, department.department_name
-  FROM employee
- INNER JOIN role_table ON role_table.id=employee.role_id
- INNER JOIN department ON role_table.department_id=department.id;
