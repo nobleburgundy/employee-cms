@@ -42,8 +42,8 @@ function start() {
         "Update Employee Role",
         "Add Role",
         "Add Department",
-        "View Total Budget",
-        "View Budget By Department",
+        "View Total Utilized Budget",
+        "View Utilized Budget By Department",
         "Exit",
       ],
     })
@@ -98,17 +98,23 @@ function start() {
             start();
           });
           break;
-        case "View Total Budget":
+        case "View Total Utilized Budget":
           db.getTotalBudget((res) => {
             const budget = currencyFormat(res[0]["SUM(role_table.salary)"]);
             console.log(`\nTotal Budget: ${budget}\n`);
             start();
           });
           break;
-        case "View Budget By Department":
+        case "View Utilized Budget By Department":
           db.getBudgetByDepartment((res) => {
-            const budget = currencyFormat(res[0]["SUM(role_table.salary)"]);
-            console.log(`\nDepartment Budget: ${budget}\n`);
+            const budget = currencyFormat(res);
+            if (typeof res === "string") {
+              // If a string is returned instead of a number,
+              // then there were no employees found.
+              console.log(res);
+            } else {
+              console.log(`\nDepartment Budget: ${budget}\n`);
+            }
             start();
           });
           break;
