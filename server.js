@@ -3,9 +3,6 @@ const inquirer = require("inquirer");
 const logo = require("asciiart-logo");
 const config = require("./package.json");
 const db = new DB();
-let currencyFormat = (number) => {
-  return new Intl.NumberFormat("us-US", { style: "currency", currency: "USD" }).format(number);
-};
 
 console.log(
   logo({
@@ -100,20 +97,16 @@ function start() {
           break;
         case "View Total Utilized Budget":
           db.getTotalBudget((res) => {
-            const budget = currencyFormat(res[0]["SUM(role_table.salary)"]);
-            console.log(`\nTotal Budget: ${budget}\n`);
+            console.log(`\nTotal Utilized Budget: ${res}\n`);
             start();
           });
           break;
         case "View Utilized Budget By Department":
           db.getBudgetByDepartment((res) => {
-            const budget = currencyFormat(res);
-            if (typeof res === "string") {
-              // If a string is returned instead of a number,
-              // then there were no employees found.
-              console.log(res);
+            if (res.budget === 0) {
+              console.log(`\nNo employees yet in the ${res.department} department.`);
             } else {
-              console.log(`\nDepartment Budget: ${budget}\n`);
+              console.log(`\n${res.department} Department Budget: ${res.budget}\n`);
             }
             start();
           });
