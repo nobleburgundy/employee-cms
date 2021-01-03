@@ -77,8 +77,7 @@ function start() {
           });
           break;
         case "Add Employee":
-          // addEmployee();
-          db.addEmployee2((res) => {
+          db.addEmployee((res) => {
             console.log(res);
             start();
           });
@@ -123,37 +122,6 @@ function start() {
       }
     });
 }
-
-addEmployee = () => {
-  inquirer
-    .prompt([
-      {
-        name: "firstName",
-        message: "First Name:",
-        type: "input",
-      },
-      {
-        name: "lastName",
-        message: "Last Name:",
-        type: "input",
-      },
-      {
-        name: "roleId",
-        message: "Role Id: ",
-        type: "input",
-      },
-      {
-        name: "managerId",
-        message: "Manager Id: ",
-        type: "input",
-      },
-    ])
-    .then((answer) => {
-      db.addEmployee(answer.firstName, answer.lastName, answer.roleId, answer.managerId, () => {
-        start();
-      });
-    });
-};
 
 addRole = () => {
   inquirer
