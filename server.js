@@ -77,7 +77,11 @@ function start() {
           });
           break;
         case "Add Employee":
-          addEmployee();
+          // addEmployee();
+          db.addEmployee2((res) => {
+            console.log(res);
+            start();
+          });
           break;
         case "Add Department":
           addDepartment();
