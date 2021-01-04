@@ -4,9 +4,10 @@ const logo = require("asciiart-logo");
 const config = require("./package.json");
 const db = new DB();
 
+// ASCII-ART LOGO
 console.log(
   logo({
-    name: "Employee CMS",
+    name: "Employee Mgr",
     font: "Speed",
     lineChars: 10,
     padding: 1,
@@ -35,8 +36,8 @@ function start() {
         "View Departments",
         "View Roles",
         "Add Employee",
-        "Remove Employee",
         "Update Employee Role",
+        "Remove Employee",
         "Add Role",
         "Add Department",
         "View Total Utilized Budget",
@@ -83,10 +84,14 @@ function start() {
           });
           break;
         case "Add Department":
-          addDepartment();
+          db.addDepartment(() => {
+            start();
+          });
           break;
         case "Add Role":
-          addRole();
+          db.addRole(() => {
+            start();
+          });
           break;
         case "Remove Employee":
           db.removeEmployee(() => {
@@ -122,43 +127,3 @@ function start() {
       }
     });
 }
-
-addRole = () => {
-  inquirer
-    .prompt([
-      {
-        name: "title",
-        message: "Role Title:",
-        type: "input",
-      },
-      {
-        name: "salary",
-        message: "Role Salary:",
-        type: "input",
-      },
-      {
-        name: "departmentId",
-        message: "Department Id: ",
-        type: "input",
-      },
-    ])
-    .then((answer) => {
-      db.addRole(answer.title, answer.salary, answer.departmentId, () => {
-        start();
-      });
-    });
-};
-
-addDepartment = () => {
-  inquirer
-    .prompt({
-      name: "department",
-      message: "Department name:",
-      type: "Input",
-    })
-    .then((answer) => {
-      db.addDepartment(answer.department, () => {
-        start();
-      });
-    });
-};
