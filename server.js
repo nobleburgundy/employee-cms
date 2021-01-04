@@ -36,6 +36,7 @@ function start() {
         "View Departments",
         "View Roles",
         "Add Employee",
+        "Edit Employee",
         "Update Employee Role",
         "Remove Employee",
         "Add Role",
@@ -66,7 +67,7 @@ function start() {
           });
           break;
         case "View Roles":
-          db.getAllRoles((res) => {
+          db.getAllRowData((res) => {
             console.table(res);
             start();
           });
@@ -79,6 +80,12 @@ function start() {
           break;
         case "Add Employee":
           db.addEmployee((res) => {
+            console.log(res);
+            start();
+          });
+          break;
+        case "Edit Employee":
+          db.editEmployee((res) => {
             console.log(res);
             start();
           });
