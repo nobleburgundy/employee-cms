@@ -37,7 +37,6 @@ function start() {
         "View Roles",
         "Add Employee",
         "Edit Employee",
-        "Update Employee Role",
         "Remove Employee",
         "Add Role",
         "Add Department",
@@ -102,11 +101,6 @@ function start() {
           break;
         case "Remove Employee":
           db.removeEmployee(() => {
-            start();
-          });
-          break;
-        case "Update Employee Role":
-          db.updateEmployeeRole(() => {
             start();
           });
           break;
