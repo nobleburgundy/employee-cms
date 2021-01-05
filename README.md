@@ -6,8 +6,6 @@
 ![Lines of Code](https://img.shields.io/tokei/lines/github/nobleburgundy/employee-cms?color=blue)
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?color=red)](https://github.com/nobleburgundy/employee-cms/blob/master/LICENSE)
 
-![logo](logo.png)
-
 ## Table of Contents
 
 - [Installation](#installation)
