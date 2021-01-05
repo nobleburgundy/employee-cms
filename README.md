@@ -22,9 +22,10 @@ A simple CLI employee management system.
 ## Installation
 
 1. Clone the repo.
-2. `cd` into the project folder.
-3. Run `npm install`.
-4. Run `node server.js` to run the program.
+2. Run the `schema.sql` and `seed.sql` in MySQL Workbench (or your favorite SQL application) to create and seed a local database. _**Note:** This is required for the application to run._
+3. `cd` into the project folder.
+4. Run `npm install`.
+5. Run `node server.js` to run the program.
 
 ## Usage
 
