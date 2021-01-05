@@ -89,6 +89,11 @@ function start() {
             start();
           });
           break;
+        case "Remove Employee":
+          db.removeEmployee(() => {
+            start();
+          });
+          break;
         case "Add Department":
           db.addDepartment(() => {
             start();
@@ -96,11 +101,6 @@ function start() {
           break;
         case "Add Role":
           db.addRole(() => {
-            start();
-          });
-          break;
-        case "Remove Employee":
-          db.removeEmployee(() => {
             start();
           });
           break;
