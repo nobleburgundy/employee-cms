@@ -32,6 +32,10 @@ A simple CLI employee management system.
 
 Once installed, run `node server.js` to run the program.
 
+### Demo
+
+![Demo](demo.gif)
+
 ## Credits
 
 The following packages and their accompanying documentation is used extensively for this project:
