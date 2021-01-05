@@ -66,7 +66,7 @@ function start() {
           });
           break;
         case "View Roles":
-          db.getAllRowData((res) => {
+          db.getAllRoleData((res) => {
             console.table(res);
             start();
           });
@@ -90,7 +90,8 @@ function start() {
           });
           break;
         case "Remove Employee":
-          db.removeEmployee(() => {
+          db.removeEmployee((res) => {
+            console.log(res);
             start();
           });
           break;
